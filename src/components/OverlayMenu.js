@@ -8,8 +8,8 @@ import { Overlay } from './styles/OverlayMenuStyles';
 const OverlayMenu = ({ menuOpen, callback }) => {
   const {
     menu: {
-      edges: [{ node: menu }]
-    }
+      edges: [{ node: menu }],
+    },
   } = useStaticQuery(
     graphql`
       query OverlayMenu {
@@ -35,7 +35,7 @@ const OverlayMenu = ({ menuOpen, callback }) => {
       <div className="inner">
         <img className="whiteLogo" src={WhiteLogo} alt="tango-white-logo" />
         <ul className="overlayMenu">
-          {menu.item.map((item, i) => (
+          {menu.items.map((item, i) => (
             <li key={i}>
               <Link to={item.url} activeClassName="overlayActive">
                 {item.title}
