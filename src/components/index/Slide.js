@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import PropTypes from 'prop-types';
 
 import { StyledImg, WbnSlide } from './styles/HeroSliderStyles';
 
@@ -15,5 +16,10 @@ const Slide = ({ slide, active }) => (
     </div>
   </WbnSlide>
 );
+
+Slide.propTypes = {
+  slide: PropTypes.object,
+  active: PropTypes.bool,
+};
 
 export default Slide;
