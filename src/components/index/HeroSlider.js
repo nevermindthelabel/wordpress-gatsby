@@ -5,12 +5,12 @@ import Slide from './Slide';
 import {
   SliderWrapper,
   ButtonWrapper,
-  Button
+  Button,
 } from './styles/HeroSliderStyles';
 
 const HeroSlider = () => {
   const {
-    slides: { edges: slides }
+    slides: { edges: slides },
   } = useStaticQuery(graphql`
     query slider {
       slides: allWordpressWpBildspel {
@@ -43,7 +43,7 @@ const HeroSlider = () => {
     slides,
     activeIndex: 0,
     autoSlide: true,
-    interval: 10000
+    interval: 10000,
   });
 
   // useInterval custom hook by Dan Abramov @overreacted.io
@@ -52,7 +52,7 @@ const HeroSlider = () => {
     () => {
       setState(prev => ({
         ...prev,
-        activeIndex: (prev.activeIndex + 1) % prev.slides.length
+        activeIndex: (prev.activeIndex + 1) % prev.slides.length,
       }));
     },
     state.autoSlide ? state.interval : null
@@ -71,8 +71,7 @@ const HeroSlider = () => {
     setState(prev => ({
       ...prev,
       autoSlide: false,
-      activeIndex:
-        (prev.activeIndex + 1 + prev.slides.length) % prev.slides.length,
+      activeIndex: (prev.activeIndex + 1) % prev.slides.length,
     }));
   };
 
